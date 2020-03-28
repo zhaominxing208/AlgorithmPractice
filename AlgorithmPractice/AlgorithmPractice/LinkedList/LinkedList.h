@@ -11,7 +11,6 @@
 @interface Node : NSObject
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) Node *next;
-@property (nonatomic, strong) Node *pre;
 
 + (Node*)createWithName:(NSString*)name;
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LinkedList.h"
+#import "BubbleSort.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    // 链表
+    [LinkedList runTest];
+    
+    // 排序
+    [BubbleSort runTest];
     
     return YES;
 }

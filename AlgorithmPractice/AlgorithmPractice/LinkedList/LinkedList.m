@@ -104,6 +104,32 @@
     return printSelf.copy;
 }
 
+
+// 反转链表
+- (LinkedList*)reversal{
+    Node *curr = self.head;
+    Node *prev = nil;
+
+    do {
+        
+        Node *tempNode = curr.next;
+        
+        // 反转
+        curr.next = prev;
+        prev = curr;
+
+        // 找到下一个要移位的结点
+        curr = tempNode;
+        
+        if (!curr) {
+            self.head = prev;
+        }
+        
+    } while (curr != nil);
+    
+    return self;
+}
+
 + (void)runTest{
     LinkedList *linkedList = [[LinkedList alloc]init];
     for (int i = 0; i < 10; i++) {
@@ -112,20 +138,24 @@
         [linkedList addNode:node forIndex:i];
     }
     
-    NSLog(@"print linkedList %@",linkedList);
+    NSLog(@"init print linkedList %@",linkedList);
     
-    [linkedList addNode:[Node createWithName:@"detal9"] forIndex:20];
+    [linkedList addNode:[Node createWithName:@"detal9"] forIndex:9];
 
-    NSLog(@"print linkedList %@",linkedList);
+    NSLog(@"add print linkedList %@",linkedList);
 
-    [linkedList addNode:[Node createWithName:@"newHead"] forIndex:0];
+    [linkedList removeNodeForIndex:9];
 
-    NSLog(@"print linkedList %@",linkedList);
+    NSLog(@"remove print linkedList %@",linkedList);
 
 
-    [linkedList setNode:[Node createWithName:@"new7"] forIndex:8];
+    [linkedList setNode:[Node createWithName:@"new8"] forIndex:9];
 
-    NSLog(@"print linkedList %@",linkedList);
+    NSLog(@"set print linkedList %@",linkedList);
+    
+    
+    linkedList = [linkedList reversal];
+    NSLog(@"reversal print linkedList %@",linkedList);
 }
 
 @end
