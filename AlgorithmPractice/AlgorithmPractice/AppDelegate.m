@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LinkedList.h"
 #import "BubbleSort.h"
+#import "BinaryTree.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,8 @@
     
     // 排序
     [BubbleSort runTest];
+    
+    [BinaryTree runTest];
     
     return YES;
 }
