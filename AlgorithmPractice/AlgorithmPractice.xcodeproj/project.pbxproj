@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0046946B242F99E8005F279E /* BubbleSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 0046946A242F99E8005F279E /* BubbleSort.m */; };
 		00469471243090FE005F279E /* BinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 00469470243090FE005F279E /* BinaryTree.m */; };
+		00C8C44324333266003BADD6 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C8C44224333266003BADD6 /* Stack.m */; };
+		00C8C44724333282003BADD6 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C8C44624333282003BADD6 /* Queue.m */; };
 		00CE2C00242F7460000F8FF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CE2BFF242F7460000F8FF0 /* AppDelegate.m */; };
 		00CE2C03242F7460000F8FF0 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CE2C02242F7460000F8FF0 /* SceneDelegate.m */; };
 		00CE2C06242F7460000F8FF0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CE2C05242F7460000F8FF0 /* ViewController.m */; };
@@ -35,6 +37,10 @@
 		0046946A242F99E8005F279E /* BubbleSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleSort.m; sourceTree = "<group>"; };
 		0046946F243090FE005F279E /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		00469470243090FE005F279E /* BinaryTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinaryTree.m; sourceTree = "<group>"; };
+		00C8C44124333266003BADD6 /* Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		00C8C44224333266003BADD6 /* Stack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		00C8C44524333282003BADD6 /* Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		00C8C44624333282003BADD6 /* Queue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		00CE2BFB242F7460000F8FF0 /* AlgorithmPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlgorithmPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CE2BFE242F7460000F8FF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		00CE2BFF242F7460000F8FF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +96,24 @@
 			path = BinaryTree;
 			sourceTree = "<group>";
 		};
+		00C8C44024333257003BADD6 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				00C8C44124333266003BADD6 /* Stack.h */,
+				00C8C44224333266003BADD6 /* Stack.m */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		00C8C4442433326F003BADD6 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				00C8C44524333282003BADD6 /* Queue.h */,
+				00C8C44624333282003BADD6 /* Queue.m */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
 		00CE2BF2242F7460000F8FF0 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +135,8 @@
 		00CE2BFD242F7460000F8FF0 /* AlgorithmPractice */ = {
 			isa = PBXGroup;
 			children = (
+				00C8C4442433326F003BADD6 /* Queue */,
+				00C8C44024333257003BADD6 /* Stack */,
 				0046946E243090E9005F279E /* BinaryTree */,
 				00469468242F99D9005F279E /* BubbleSort */,
 				00CE2C17242F748B000F8FF0 /* LinkedList */,
@@ -247,8 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C8C44324333266003BADD6 /* Stack.m in Sources */,
 				00CE2C06242F7460000F8FF0 /* ViewController.m in Sources */,
 				00CE2C00242F7460000F8FF0 /* AppDelegate.m in Sources */,
+				00C8C44724333282003BADD6 /* Queue.m in Sources */,
 				00CE2C11242F7461000F8FF0 /* main.m in Sources */,
 				00CE2C1A242F749E000F8FF0 /* LinkedList.m in Sources */,
 				00CE2C03242F7460000F8FF0 /* SceneDelegate.m in Sources */,

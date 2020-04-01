@@ -15,6 +15,11 @@
     node.element = name;
     return node;
 }
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@", self.element];
+}
 @end
 
 @interface BinaryTree ()
@@ -43,6 +48,28 @@
     return self;
 }
 
+- (instancetype)initWithArray:(NSArray*)array{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
++ (TreeNode*)createFullTree:(TreeNode*)node withArray:(NSArray*)array index:(NSInteger)index{
+    if (array.count == 0) {
+        return nil;
+    }
+    
+    if (!node && index < array.count) {
+        node = [TreeNode createWithName:array[index]];
+        node.left = [BinaryTree createFullTree:node.left withArray:array index:2*index+1];
+        node.right = [BinaryTree createFullTree:node.right withArray:array index:2*index+2];
+    }
+    
+    return node;
+}
+
 - (TreeNode*)addNode:(TreeNode*)root element:(NSString*)element{
     if (!root) {
  
@@ -63,22 +90,111 @@
 }
 
 + (void)runTest{
-    BinaryTree *binaryTree = [[BinaryTree alloc]initWithMaxInt:20];
+    TreeNode *fullTree = [BinaryTree createFullTree:nil withArray:@[@7,@2,@9,@4,@23] index:0];
     
-    [binaryTree printFront:binaryTree.root];
+    [BinaryTree printLevel:fullTree];
 }
 
-- (void)printFront:(TreeNode*)rootNode{
-
-    
++ (void)printFront:(TreeNode*)rootNode{
     if (rootNode) {
         NSLog(@"%@", rootNode.element);
         [self printFront:rootNode.left];
         [self printFront:rootNode.right];
-        
-        if (!rootNode.left || !rootNode.right) {
-            NSLog(@"#");
+    }
+}
+
++ (void)printFrontLoop:(TreeNode*)rootNode{
+    TreeNode *p = rootNode;
+    NSMutableArray *stack = @[].mutableCopy;
+    do {
+        if (p != nil) {
+            NSLog(@"%@", p.element);
+            [stack addObject:p];
+            p = p.left;
+        }else{
+            TreeNode *preRoot = stack.lastObject;
+            [stack removeLastObject];
+            p = preRoot.right;
         }
+
+        
+    } while (p != nil || stack.count > 0);
+}
+
++ (void)printMid:(TreeNode*)rootNode{
+    if (rootNode) {
+        [self printFront:rootNode.left];
+        NSLog(@"%@", rootNode.element);
+        [self printFront:rootNode.right];
+    }
+}
+
++ (void)printMidLoop:(TreeNode*)rootNode{
+    TreeNode *p = rootNode;
+    NSMutableArray *stack = @[].mutableCopy;
+    do {
+        if (p != nil) {
+            [stack addObject:p];
+            p = p.left;
+        }else{
+            TreeNode *preRoot = stack.lastObject;
+            [stack removeLastObject];
+            NSLog(@"%@", preRoot.element);
+            p = preRoot.right;
+        }
+
+        
+    } while (p != nil || stack.count > 0);
+}
+
+
++ (void)printEnd:(TreeNode*)rootNode{
+    if (rootNode) {
+        [self printFront:rootNode.right];
+        NSLog(@"%@", rootNode.element);
+        [self printFront:rootNode.left];
+    }
+}
+
++ (void)printEndLoop:(TreeNode*)rootNode{
+    TreeNode *p = rootNode;
+    NSMutableArray *stack = @[].mutableCopy;
+    do {
+        if (p != nil) {
+            [stack addObject:p];
+            p = p.left;
+        }else{
+            TreeNode *preRoot = stack.lastObject;
+            [stack removeLastObject];
+            NSLog(@"%@", preRoot.element);
+            p = preRoot.right;
+        }
+
+        
+    } while (p != nil || stack.count > 0);
+}
+
+
++ (void)printLevel:(TreeNode*)rootNode{
+    NSMutableArray *queue = @[].mutableCopy;
+    
+    [queue addObject:rootNode];
+    while (queue.count > 0) {
+        
+        TreeNode *node = queue.lastObject;
+        NSLog(@"%@", node.element);
+        [queue removeLastObject];
+        
+        
+        if (node.left) {
+           [queue insertObject:node.left atIndex:0];
+        }
+        
+        if (node.right) {
+            [queue insertObject:node.right atIndex:0];
+        }
+
+
     }
 }
 
